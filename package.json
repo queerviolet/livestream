@@ -1,0 +1,16 @@
+{
+  "name": "livestream",
+  "version": "0.0.1",
+  "bin": "index.js",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nightmare": "^2.10.0"
+  }
+}
