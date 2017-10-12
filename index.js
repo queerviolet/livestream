@@ -24,6 +24,7 @@ const Nightmare = require('nightmare')
 const livestream = module.exports = async function livestream({title, description, interactive: show=true, partition='persist: livestream'}) {
   const dashboard = Nightmare({
       webPreferences: {partition},
+      typeInterval: 5,
       show
     })
     .goto('https://www.youtube.com/live_dashboard')
@@ -33,12 +34,12 @@ const livestream = module.exports = async function livestream({title, descriptio
   title && await
     dashboard
       .type(titleInput, '')
-      .type(titleInput, title)
+      .type(titleInput, keystrokes(title))
   
   description && await
     dashboard
       .type(descriptionTextarea, '')
-      .type(descriptionTextarea, description)
+      .type(descriptionTextarea, keystrokes(description))
     
   if (title || dashboard)
     await dashboard.wait(saved, TIMEOUT)
@@ -72,6 +73,10 @@ function saved() {
 function getStreamUrl() {
   const input = document.querySelector('input[value^="https://www.youtube.com"]')
   return input && input.value
+}
+
+function keystrokes(str) {
+  return str.replace(/\n/g, '\u000d')
 }
 
 if (module === require.main)
