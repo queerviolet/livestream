@@ -1,6 +1,6 @@
 {
   "name": "livestream",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "bin": "index.js",
   "description": "",
   "main": "index.js",
