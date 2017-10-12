@@ -32,13 +32,13 @@ const livestream = module.exports = async function livestream({title, descriptio
   
   title && await
     dashboard
-      .insert(titleInput, '')
-      .insert(titleInput, title)
+      .type(titleInput, '')
+      .type(titleInput, title)
   
   description && await
     dashboard
-      .insert(descriptionTextarea, '')
-      .insert(descriptionTextarea, description)
+      .type(descriptionTextarea, '')
+      .type(descriptionTextarea, description)
     
   if (title || dashboard)
     await dashboard.wait(saved, TIMEOUT)
